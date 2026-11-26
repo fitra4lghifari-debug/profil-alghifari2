@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio | M Fitra Al Ghifari - Siswa TKJ SMK Telkom Malang</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'><path d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.54-3.14 8.78-7 9.9-3.86-1.12-7-5.36-7-9.9V6.3l7-3.12z'/></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb', // primary blue
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
+            telkom: '#e11d48'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300" id="main-nav">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3 flex items-center justify-between">
+      <!-- Logo / Name Brand -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-sky-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-network-wired text-lg"></i>
+        </div>
+        <div>
+          <span class="text-lg font-bold tracking-tight text-slate-900 group-hover:text-brand-600 transition-colors">Fitra Al Ghifari</span>
+          <span class="block text-xs font-semibold text-brand-600 tracking-wider uppercase">SMK Telkom Malang</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 bg-slate-100/70 p-1.5 rounded-full border border-slate-200">
+        <a href="#home" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-700 hover:text-brand-600 hover:bg-white transition-all">
+          <i class="fa-solid fa-house mr-1.5 text-xs text-brand-500"></i>Beranda
+        </a>
+        <a href="#profile" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-700 hover:text-brand-600 hover:bg-white transition-all">
+          <i class="fa-solid fa-user mr-1.5 text-xs text-brand-500"></i>Profil & Keahlian
+        </a>
+        <a href="#contact" class="nav-link px-4 py-1.5 rounded-full text-sm font-medium text-slate-700 hover:text-brand-600 hover:bg-white transition-all">
+          <i class="fa-solid fa-paper-plane mr-1.5 text-xs text-brand-500"></i>Kontak
+        </a>
+      </nav>
+
+      <!-- CTA Nav Button -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 shadow-md shadow-brand-500/25 transition-all hover:shadow-lg hover:-translate-y-0.5">
+          <span>Kirim Pesan</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-toggle-btn" class="md:hidden w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 hover:text-brand-600 hover:bg-slate-200 transition-colors focus:outline-none" aria-label="Menu navigasi">
+        <i class="fa-solid fa-bars text-lg" id="menu-icon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white/95 backdrop-blur-lg px-6 py-4 space-y-2">
+      <a href="#home" class="mobile-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-700 font-medium hover:bg-brand-50 hover:text-brand-600 transition-all">
+        <i class="fa-solid fa-house text-brand-500 w-5"></i>
+        <span>Beranda</span>
+      </a>
+      <a href="#profile" class="mobile-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-700 font-medium hover:bg-brand-50 hover:text-brand-600 transition-all">
+        <i class="fa-solid fa-user text-brand-500 w-5"></i>
+        <span>Profil & Keahlian</span>
+      </a>
+      <a href="#contact" class="mobile-link flex items-center gap-3 px-4 py-2.5 rounded-xl text-slate-700 font-medium hover:bg-brand-50 hover:text-brand-600 transition-all">
+        <i class="fa-solid fa-paper-plane text-brand-500 w-5"></i>
+        <span>Kontak & Sosial Media</span>
+      </a>
+      <div class="pt-2">
+        <a href="#contact" class="mobile-link flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-semibold text-white bg-brand-600 hover:bg-brand-700 shadow-md transition-all">
+          <span>Hubungi Saya</span>
+          <i class="fa-solid fa-envelope text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 1. HALAMAN UTAMA (HOME) ==================== -->
+  <section id="home" class="min-h-screen pt-28 pb-16 md:pt-36 md:pb-24 flex items-center relative overflow-hidden bg-gradient-to-b from-blue-50/60 via-white to-slate-50">
+    <!-- Decorative Ambient Glow & Network Lines -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-200/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -right-32 w-96 h-96 bg-sky-200/40 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Hero Text & Introduction -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <!-- Badge Sambutan -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-200 shadow-sm shadow-brand-100 text-xs sm:text-sm font-semibold text-brand-700">
+            <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-ping"></span>
+            <i class="fa-solid fa-handshake-angle text-brand-600"></i>
+            <span>Selamat Datang di Portofolio Resmi</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Halo! Saya <br class="hidden sm:inline">
+            <span class="bg-gradient-to-r from-brand-700 via-brand-600 to-sky-500 bg-clip-text text-transparent">
+              M Fitra Al Ghifari
+            </span>
+          </h1>
+
+          <!-- Perkenalan Singkat -->
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+            Siswa <strong class="text-slate-800 font-semibold">Kelas 10</strong> di <strong class="text-brand-700 font-semibold">SMK Telkom Malang</strong>, jurusan <strong class="text-slate-800 font-semibold">Teknik Jaringan Komputer (TKJ)</strong>. Website ini dibuat sebagai portofolio awal untuk mendokumentasikan perjalanan belajar, dasar-dasar keahlian jaringan, serta dedikasi saya dalam meraih cita-cita di dunia <span class="text-brand-600 font-semibold">Cyber Security</span>.
+          </p>
+
+          <!-- Quick Stat Badges -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+            <div class="p-3 bg-white rounded-2xl border border-slate-200/90 shadow-sm text-center">
+              <span class="block text-xs text-slate-500 font-medium">Jenjang</span>
+              <span class="block text-sm sm:text-base font-bold text-slate-800">Kelas 10 SMK</span>
+            </div>
+            <div class="p-3 bg-white rounded-2xl border border-slate-200/90 shadow-sm text-center">
+              <span class="block text-xs text-slate-500 font-medium">Konsentrasi</span>
+              <span class="block text-sm sm:text-base font-bold text-brand-600">Teknik Jaringan</span>
+            </div>
+            <div class="col-span-2 sm:col-span-1 p-3 bg-white rounded-2xl border border-slate-200/90 shadow-sm text-center">
+              <span class="block text-xs text-slate-500 font-medium">Cita-Cita</span>
+              <span class="block text-sm sm:text-base font-bold text-sky-600">Cyber Expert</span>
+            </div>
+          </div>
+
+          <!-- Call to Action (CTA) Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="#profile" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-lg shadow-brand-500/30 transition-all hover:-translate-y-0.5 active:translate-y-0">
+              <i class="fa-solid fa-id-card"></i>
+              <span>Lihat Profil & Keahlian</span>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 shadow-sm transition-all hover:-translate-y-0.5">
+              <i class="fa-solid fa-comments text-brand-600"></i>
+              <span>Hubungi Saya</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Hero Visual Card with User Photo -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-sm sm:max-w-md">
+            
+            <!-- Outer Glow & Gradient Border -->
+            <div class="absolute -inset-1.5 bg-gradient-to-tr from-brand-600 via-sky-400 to-indigo-500 rounded-3xl blur-md opacity-30 animate-pulse"></div>
+
+            <!-- Card Container -->
+            <div class="relative bg-white rounded-3xl p-5 shadow-2xl border border-slate-100 flex flex-col items-center">
+              
+              <!-- Photo Frame -->
+              <div class="relative w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden shadow-inner border-4 border-slate-100 bg-slate-100">
+                <img 
+                  src="images/profile.jpg" 
+                  alt="Foto M Fitra Al Ghifari - Siswa SMK Telkom Malang" 
+                  class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                >
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/80 via-slate-900/30 to-transparent p-3 text-center text-white">
+                  <p class="text-xs font-semibold tracking-wide uppercase text-sky-300">Siswa Aktif</p>
+                  <p class="text-sm font-bold truncate">M Fitra Al Ghifari</p>
+                </div>
+              </div>
+
+              <!-- Student Profile Pill Info -->
+              <div class="mt-4 w-full bg-slate-50 rounded-2xl p-3.5 border border-slate-200/70 space-y-2">
+                <div class="flex items-center justify-between text-xs sm:text-sm">
+                  <span class="text-slate-500 font-medium"><i class="fa-solid fa-school text-brand-600 mr-1.5"></i>Sekolah</span>
+                  <span class="font-bold text-slate-800">SMK Telkom Malang</span>
+                </div>
+                <div class="flex items-center justify-between text-xs sm:text-sm">
+                  <span class="text-slate-500 font-medium"><i class="fa-solid fa-graduation-cap text-brand-600 mr-1.5"></i>Status</span>
+                  <span class="font-bold text-brand-700">Kelas 10 (TKJ)</span>
+                </div>
+                <div class="flex items-center justify-between text-xs sm:text-sm">
+                  <span class="text-slate-500 font-medium"><i class="fa-solid fa-shield-halved text-brand-600 mr-1.5"></i>Fokus Minat</span>
+                  <span class="font-bold text-sky-600">Cyber Security</span>
+                </div>
+              </div>
+
+              <!-- Floating Micro Badge -->
+              <div class="absolute -top-3 -right-3 bg-white px-3 py-1.5 rounded-full shadow-lg border border-slate-200 text-xs font-bold text-brand-600 flex items-center gap-1.5">
+                <i class="fa-solid fa-shield-cat text-brand-500"></i> Future Cyber Pro
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. HALAMAN PROFIL (PROFILE / ABOUT ME) ==================== -->
+  <section id="profile" class="py-20 bg-white border-y border-slate-200/80 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold uppercase tracking-wider mb-2 border border-brand-200">
+          <i class="fa-solid fa-user-graduate"></i>
+          Profil Lengkap
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Tentang Diri & Keahlian Saya
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+          Mengenal lebih dekat identitas, perjalanan pendidikan, motivasi belajar, serta keterampilan teknis yang telah dan sedang saya pelajari.
+        </p>
+      </div>
+
+      <!-- Main Profile Grid: Biodata & Education Background -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+        
+        <!-- Left: Biodata Singkat & Foto Showcase -->
+        <div class="lg:col-span-5 bg-gradient-to-b from-slate-50 to-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm">
+          <div class="flex items-center gap-4 mb-6 pb-5 border-b border-slate-200">
+            <div class="w-14 h-14 rounded-2xl overflow-hidden border-2 border-brand-500 shadow-sm flex-shrink-0">
+              <img src="images/profile.jpg" alt="M Fitra Al Ghifari" class="w-full h-full object-cover object-top">
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-slate-900">M Fitra Al Ghifari</h3>
+              <p class="text-xs text-brand-600 font-semibold flex items-center gap-1.5 mt-0.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Pelajar Aktif SMK
+              </p>
+            </div>
+          </div>
+
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <i class="fa-regular fa-address-card text-brand-600"></i> Biodata Siswa
+          </h4>
+
+          <ul class="space-y-3.5 text-sm">
+            <li class="flex justify-between items-center py-2 px-3 rounded-xl bg-white border border-slate-100 shadow-xs">
+              <span class="text-slate-500 font-medium">Nama Lengkap</span>
+              <span class="font-bold text-slate-800">M Fitra Al Ghifari</span>
+            </li>
+            <li class="flex justify-between items-center py-2 px-3 rounded-xl bg-white border border-slate-100 shadow-xs">
+              <span class="text-slate-500 font-medium">Sekolah</span>
+              <span class="font-bold text-brand-700">SMK TELKOM MALANG</span>
+            </li>
+            <li class="flex justify-between items-center py-2 px-3 rounded-xl bg-white border border-slate-100 shadow-xs">
+              <span class="text-slate-500 font-medium">Kelas</span>
+              <span class="font-bold text-slate-800">10 (Sepuluh)</span>
+            </li>
+            <li class="flex justify-between items-center py-2 px-3 rounded-xl bg-white border border-slate-100 shadow-xs">
+              <span class="text-slate-500 font-medium">Program Keahlian</span>
+              <span class="font-bold text-brand-600">Teknik Jaringan Komputer</span>
+            </li>
+            <li class="flex justify-between items-center py-2 px-3 rounded-xl bg-white border border-slate-100 shadow-xs">
+              <span class="text-slate-500 font-medium">Sekolah Asal (SMP)</span>
+              <span class="font-bold text-slate-800">SMP MUGI 09</span>
+            </li>
+          </ul>
+
+          <!-- Motivasi Singkat -->
+          <div class="mt-6 p-4 rounded-2xl bg-brand-50/70 border border-brand-200/80 text-brand-900">
+            <div class="flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-brand-700 mb-1">
+              <i class="fa-solid fa-quote-left"></i> Moto Belajar
+            </div>
+            <p class="text-xs sm:text-sm italic text-slate-700 leading-relaxed">
+              "Menguasai fondasi jaringan hari ini untuk mengamankan ekosistem digital di masa depan."
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: Latar Belakang Pendidikan & Ketertarikan Masuk SMK -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Card: Perjalanan Pendidikan -->
+          <div class="bg-slate-50 rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm relative overflow-hidden">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-timeline text-lg"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-slate-900">Latar Belakang Pendidikan</h3>
+                <p class="text-xs text-slate-500">Jejak langkah pendidikan formal yang telah ditempuh</p>
+              </div>
+            </div>
+
+            <!-- Timeline Elements -->
+            <div class="relative pl-6 border-l-2 border-brand-200 space-y-6 mt-6">
+              
+              <!-- Item 1: SMP MUGI 09 -->
+              <div class="relative group">
+                <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-white border-4 border-slate-400 group-hover:border-brand-500 transition-colors"></div>
+                <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-xs">
+                  <div class="flex items-center justify-between">
+                    <h4 class="font-bold text-slate-800 text-base">SMP MUGI 09</h4>
+                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">Alumni</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-600 mt-1">
+                    Menyelesaikan pendidikan sekolah menengah pertama di SMP MUGI 09. Di bangku SMP inilah rasa ingin tahu dan minat saya terhadap dunia komputer mulai tumbuh pesat.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 2: SMK TELKOM MALANG -->
+              <div class="relative group">
+                <div class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-white border-4 border-brand-600 group-hover:scale-110 transition-transform"></div>
+                <div class="bg-white p-4 rounded-2xl border border-brand-200/90 shadow-sm">
+                  <div class="flex items-center justify-between">
+                    <h4 class="font-bold text-brand-700 text-base">SMK TELKOM MALANG</h4>
+                    <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-brand-100 text-brand-700">Saat Ini • Kelas 10</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-700 font-medium mt-1">
+                    Jurusan: Teknik Jaringan Komputer (TKJ)
+                  </p>
+                  <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                    Saat ini aktif menempuh pendidikan kejuruan di SMK Telkom Malang dengan fokus mendalami infrastruktur jaringan, hardware, dan fundamental teknologi informasi.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Card: Alasan & Ketertarikan Masuk Jurusan TKJ -->
+          <div class="bg-gradient-to-br from-brand-600 to-brand-800 rounded-3xl p-6 sm:p-7 text-white shadow-lg shadow-brand-700/20 relative overflow-hidden">
+            <!-- Decorative Shield Watermark -->
+            <div class="absolute -right-8 -bottom-8 text-brand-500/20 text-9xl pointer-events-none">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div class="relative z-10">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-sm text-white text-xs font-semibold uppercase tracking-wider mb-3">
+                <i class="fa-solid fa-bullseye text-sky-300"></i> Visi & Minat Utama
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">
+                Mengapa Saya Memilih Jurusan Ini?
+              </h3>
+              <p class="text-blue-100 text-sm sm:text-base leading-relaxed mb-4">
+                "Alasan utama saya memilih jurusan <strong>Teknik Jaringan Komputer</strong> di SMK Telkom Malang adalah karena <strong class="text-white underline decoration-sky-300 decoration-2 underline-offset-2">saya ingin menjadi seorang ahli dalam bidang cyber (Cyber Security)</strong>."
+              </p>
+              <p class="text-xs sm:text-sm text-blue-100/90 leading-relaxed">
+                Di era digital ini, keamanan data dan keandalan sistem jaringan adalah hal yang krusial. Saya memiliki tekad kuat untuk memahami bagaimana paket data mengalir, bagaimana sistem jaringan dibangun, dan bagaimana cara memproteksi sistem dari ancaman siber yang kian kompleks.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==================== KEAHLIAN / SKILLS ==================== -->
+      <div class="pt-6">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-700 text-xs font-bold uppercase tracking-wider mb-2 border border-sky-200">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            Kompetensi Teknis
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Keahlian yang Sedang & Sudah Dipelajari
+          </h3>
+          <p class="text-slate-600 text-sm mt-2">
+            Keterampilan praktikum dan pemahaman teori yang saya kembangkan di bangku kelas 10 SMK Telkom Malang.
+          </p>
+        </div>
+
+        <!-- Skills Grid: 5 Core Competencies -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Skill 1: Dasar Pemrograman -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-brand-300 transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
+                Dasar Pemrograman
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                Mempelajari logika pemrograman dasar, struktur data sederhana, algoritma, serta pengenalan pembuatan antarmuka web (HTML & CSS dasar) untuk mendukung otomatisasi sistem.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500">Tingkat Penguasaan</span>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-amber-100 text-amber-700">Fondasi Dasar</span>
+            </div>
+          </div>
+
+          <!-- Skill 2: Setting Mikrotik -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-brand-300 transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 text-sky-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-server"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
+                Setting & Konfigurasi MikroTik
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                Mampu mengoperasikan software Winbox untuk konfigurasi RouterBoard MikroTik, pengaturan DHCP Server/Client, static routing, NAT, dan basic firewall rules.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500">Tingkat Penguasaan</span>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-sky-100 text-sky-700">Praktik Konfigurasi</span>
+            </div>
+          </div>
+
+          <!-- Skill 3: Perakitan & Troubleshooting PC -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-brand-300 transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-computer"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
+                Perakitan & Troubleshooting PC
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                Merakit komponen komputer (CPU, RAM, Motherboard, PSU, Storage), instalasi OS, serta mendiagnosis dan memecahkan kendala hardware maupun software (troubleshooting).
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500">Tingkat Penguasaan</span>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-700">Hardware & Diagnostik</span>
+            </div>
+          </div>
+
+          <!-- Skill 4: Pengkabelan Kabel UTP -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-brand-300 transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-ethernet"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
+                Kabel UTP & Crimping RJ-45
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                Pengkabelan jaringan lokal menggunakan standar T568A dan T568B, pembuatan kabel Straight-Through dan Crossover, serta pengujian konektivitas dengan LAN Cable Tester.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500">Tingkat Penguasaan</span>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-indigo-100 text-indigo-700">Teknikal Praktik</span>
+            </div>
+          </div>
+
+          <!-- Skill 5: IP Address & Subnetting -->
+          <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-brand-300 transition-all group flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-brand-50 border border-brand-200 text-brand-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-sitemap"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
+                IP Address & Subnetting
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                Pemahaman kelas IP Address IPv4 (Class A, B, C), konsep subnet mask, CIDR prefix (misal: /24, /26), penentuan Network ID, Broadcast ID, dan usable IP untuk host jaringan.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
+              <span class="text-xs font-semibold text-slate-500">Tingkat Penguasaan</span>
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-brand-100 text-brand-700">Fondasi Jaringan</span>
+            </div>
+          </div>
+
+          <!-- Highlight Card: Cyber Security Learning Pathway -->
+          <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-6 text-white shadow-md flex flex-col justify-between relative overflow-hidden">
+            <div class="relative z-10">
+              <div class="w-12 h-12 rounded-2xl bg-sky-500/20 border border-sky-400/30 text-sky-400 flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-shield-virus"></i>
+              </div>
+              <h4 class="text-lg font-bold text-white">
+                Fokus Pengembangan Lanjutan
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                Sedang aktif memperdalam konsep Keamanan Jaringan (Cyber Defense, Port Scanning, Ethical Hacking dasar, dan Firewall Security) sebagai langkah mewujudkan impian menjadi Cyber Specialist.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-slate-700 flex items-center gap-2 text-xs text-sky-300 font-semibold">
+              <i class="fa-solid fa-flag-checkered"></i> Target Spesialisasi
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 3. HALAMAN KONTAK (CONTACT) ==================== -->
+  <section id="contact" class="py-20 bg-slate-50 relative overflow-hidden">
+    <!-- Decorative Glow -->
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-100/50 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-bold uppercase tracking-wider mb-2 border border-brand-200">
+          <i class="fa-solid fa-paper-plane"></i>
+          Hubungi Saya
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Mari Terhubung & Berdiskusi
+        </h2>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+          Ingin bertukar wawasan seputar teknologi jaringan atau memberikan saran untuk portofolio ini? Anda dapat menghubungi saya melalui media sosial publik atau formulir pesan di bawah.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Media Sosial & Panduan Keamanan Privasi -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Social Media Cards -->
+          <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm space-y-4">
+            <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <i class="fa-solid fa-share-nodes text-brand-600"></i> Media Sosial Publik
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Silakan kunjungi platform media sosial publik saya untuk melihat aktivitas dan konten yang saya bagikan:
+            </p>
+
+            <!-- Instagram Link -->
+            <a 
+              href="https://www.instagram.com/ozza_f1?cplk=Z2Mzd25qemhqODNj" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-pink-50 to-rose-50 border border-pink-200/80 hover:border-pink-300 hover:shadow-md transition-all group"
+            >
+              <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center text-xl shadow-sm">
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div>
+                  <span class="block text-sm font-bold text-slate-900 group-hover:text-rose-600 transition-colors">Instagram</span>
+                  <span class="block text-xs text-slate-500 font-medium">@ozza_f1</span>
+                </div>
+              </div>
+              <div class="w-8 h-8 rounded-full bg-white text-rose-500 flex items-center justify-center text-xs shadow-xs group-hover:translate-x-1 transition-transform">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </div>
+            </a>
+
+            <!-- TikTok Link -->
+            <a 
+              href="https://www.tiktok.com/@ozza.wolf?_r=1&_t=ZS-9B8UEQ7O6T7" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex items-center justify-between p-4 rounded-2xl bg-gradient-to-r from-slate-100 to-slate-200/70 border border-slate-300 hover:border-slate-400 hover:shadow-md transition-all group"
+            >
+              <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center text-xl shadow-sm">
+                  <i class="fa-brands fa-tiktok"></i>
+                </div>
+                <div>
+                  <span class="block text-sm font-bold text-slate-900 group-hover:text-slate-700 transition-colors">TikTok</span>
+                  <span class="block text-xs text-slate-500 font-medium">@ozza.wolf</span>
+                </div>
+              </div>
+              <div class="w-8 h-8 rounded-full bg-white text-slate-800 flex items-center justify-center text-xs shadow-xs group-hover:translate-x-1 transition-transform">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </div>
+            </a>
+          </div>
+
+          <!-- Privacy Security Notice Banner (Ketentuan Poin 7) -->
+          <div class="bg-blue-50/90 border border-blue-200 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 text-blue-900 shadow-xs">
+            <div class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+              <i class="fa-solid fa-shield-halved text-sm"></i>
+            </div>
+            <div class="text-xs leading-relaxed">
+              <strong class="block font-bold text-sm text-blue-950 mb-0.5">Catatan Privasi & Keamanan Informasi</strong>
+              Sesuai dengan ketentuan standar keamanan dan privasi data siswa, nomor telepon/HP, alamat rumah, dan email pribadi tidak dicantumkan secara publik di website ini. Komunikasi dapat dilakukan melalui tautan media sosial resmi atau formulir pesan yang tersedia.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Formulir Pesan Interaktif -->
+        <div class="lg:col-span-7">
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm relative">
+            
+            <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+              <div>
+                <h3 class="text-xl font-bold text-slate-900">Kirim Pesan Langsung</h3>
+                <p class="text-xs sm:text-sm text-slate-500">Tinggalkan pesan, saran, atau masukan untuk pengembangan portofolio</p>
+              </div>
+              <div class="hidden sm:flex w-10 h-10 rounded-xl bg-brand-50 text-brand-600 items-center justify-center">
+                <i class="fa-regular fa-comment-dots text-lg"></i>
+              </div>
+            </div>
+
+            <!-- Form Element -->
+            <form id="contact-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+              
+              <!-- Input Nama -->
+              <div>
+                <label for="sender-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  Nama Anda <span class="text-rose-500">*</span>
+                </label>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <i class="fa-regular fa-user text-sm"></i>
+                  </div>
+                  <input 
+                    type="text" 
+                    id="sender-name" 
+                    name="name" 
+                    required 
+                    placeholder="Masukkan nama lengkap Anda..."
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm text-slate-800 transition-all placeholder:text-slate-400 bg-slate-50/50 focus:bg-white"
+                  >
+                </div>
+              </div>
+
+              <!-- Input Subjek / Perihal -->
+              <div>
+                <label for="message-subject" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  Subjek / Topik <span class="text-rose-500">*</span>
+                </label>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <i class="fa-solid fa-tag text-sm"></i>
+                  </div>
+                  <input 
+                    type="text" 
+                    id="message-subject" 
+                    name="subject" 
+                    required 
+                    placeholder="Contoh: Diskusi Jaringan / Masukan Portofolio"
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm text-slate-800 transition-all placeholder:text-slate-400 bg-slate-50/50 focus:bg-white"
+                  >
+                </div>
+              </div>
+
+              <!-- Input Isi Pesan -->
+              <div>
+                <label for="message-body" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  Isi Pesan <span class="text-rose-500">*</span>
+                </label>
+                <div class="relative">
+                  <textarea 
+                    id="message-body" 
+                    name="message" 
+                    rows="4" 
+                    required 
+                    placeholder="Tuliskan pesan, pertanyaan, atau masukan Anda di sini..."
+                    class="w-full p-3.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-sm text-slate-800 transition-all placeholder:text-slate-400 bg-slate-50/50 focus:bg-white resize-none"
+                  ></textarea>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="pt-2">
+                <button 
+                  type="submit" 
+                  id="submit-btn" 
+                  class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-md shadow-brand-500/25 transition-all hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                >
+                  <i class="fa-solid fa-paper-plane" id="btn-icon"></i>
+                  <span id="btn-text">Kirim Pesan Sekarang</span>
+                </button>
+              </div>
+
+              <p class="text-center text-[11px] text-slate-400 mt-2">
+                Pesan akan diproses secara aman dalam sistem tanpa mengekspos data pribadi secara terbuka.
+              </p>
+            </form>
+
+            <!-- Success Notification Modal / Alert (Hidden by default) -->
+            <div id="success-alert" class="hidden mt-4 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 transition-all animate-fade-in">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm text-emerald-950">Pesan Berhasil Terkirim!</h4>
+                  <p class="text-xs text-emerald-800 mt-0.5 leading-relaxed" id="success-text">
+                    Terima kasih telah berkunjung dan mengirim pesan. Pesan Anda telah tersimpan dengan aman di portofolio ini.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-white border-t border-slate-200 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        
+        <!-- Brand & School -->
+        <div class="space-y-1">
+          <div class="flex items-center justify-center md:justify-start gap-2">
+            <span class="w-7 h-7 rounded-lg bg-brand-600 text-white flex items-center justify-center text-xs">
+              <i class="fa-solid fa-shield-halved"></i>
+            </span>
+            <span class="font-bold text-slate-900 text-base">M Fitra Al Ghifari</span>
+          </div>
+          <p class="text-xs text-slate-500">
+            Siswa Kelas 10 Teknik Jaringan Komputer • SMK Telkom Malang
+          </p>
+        </div>
+
+        <!-- Quick Jump Links -->
+        <div class="flex items-center gap-6 text-xs font-semibold text-slate-600">
+          <a href="#home" class="hover:text-brand-600 transition-colors">Beranda</a>
+          <a href="#profile" class="hover:text-brand-600 transition-colors">Profil & Keahlian</a>
+          <a href="#contact" class="hover:text-brand-600 transition-colors">Kontak</a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-xs text-slate-400">
+          &copy; 2026 M Fitra Al Ghifari. All rights reserved.
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Scroll To Top Button -->
+  <button 
+    id="scroll-to-top" 
+    class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-2xl bg-brand-600 text-white shadow-lg shadow-brand-600/30 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-700 hover:-translate-y-1"
+    aria-label="Kembali ke atas"
+  >
+    <i class="fa-solid fa-arrow-up text-sm"></i>
+  </button>
+
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
